@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tab_coach" android:icon="@drawable/ic_coach" android:title="@string/tab_coach" />
+    <item android:id="@+id/tab_placement" android:icon="@drawable/ic_placement" android:title="@string/tab_placement" />
+    <item android:id="@+id/tab_booklet" android:icon="@drawable/ic_booklet" android:title="@string/tab_booklet" />
+    <item android:id="@+id/tab_practice" android:icon="@drawable/ic_practice" android:title="@string/tab_practice" />
+    <item android:id="@+id/tab_progress" android:icon="@drawable/ic_progress" android:title="@string/tab_progress" />
+</menu>

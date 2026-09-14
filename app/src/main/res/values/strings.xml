@@ -1,4 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">آلمانی میشل توماس</string>
+    <string name="app_name">دوره میشل توماس</string>
+
+    <string name="tab_coach">مربی</string>
+    <string name="tab_placement">کجای مسیر</string>
+    <string name="tab_booklet">جزوه</string>
+    <string name="tab_practice">تمرین</string>
+    <string name="tab_progress">پیشرفت</string>
+
+    <string name="hero_title">دوره آلمانی میشل توماس</string>
+    <string name="hero_subtitle">۱۰ درس • ۱۱۷۸ جمله با ترجمه فارسی</string>
+
+    <string name="commitment_title">تعهد من</string>
+    <string name="commitment_hint">من قول می‌دهم بدون تقلب و بدون نگاه‌کردن به جواب، هر روز تمرین کنم…</string>
+    <string name="commitment_save">ثبت تعهد</string>
+    <string name="commitment_saved">✓ تعهد ثبت شد — تقلب ممنوع!</string>
+
+    <string name="checklist_title">چک‌لیست امروز</string>
+    <string name="check_1">مرور جمله‌های جزوه</string>
+    <string name="check_2">تمرین تلفظ با میکروفون</string>
+    <string name="check_3">بازی خردکردن جمله</string>
+    <string name="check_4">مرور فاصله‌دار</string>
+    <string name="check_5">آزمون کوتاه یک درس</string>
+
+    <string name="choose_lesson">درس امروز</string>
+    <string name="start_lesson">شروع درس</string>
+
+    <string name="streak_days">روز پشت‌سرهم</string>
+    <string name="learned_words">یادگرفته‌شده</string>
+    <string name="due_review">در انتظار مرور</string>
+
+    <string name="placement_title">کجای مسیر هستی؟</string>
+    <string name="placement_desc">به ۴ سؤال جواب بده تا ببینیم از کجا شروع کنی. تقلب نکن — هدفش پیدا کردن نقطه شروع واقعی توست!</string>
+    <string name="placement_start">شروع تشخیص</string>
+    <string name="placement_result">پیشنهاد ما</string>
+    <string name="placement_guide">این دوره (روش میشل توماس) از صفر شروع می‌شود و جمله‌سازی را قدم‌به‌قدم آموزش می‌دهد:\n\n• درس ۱–۳: پایه — فعل‌های ساده و جملات کوتاه\n• درس ۴–۶: میانه — صرف فعل‌ها، کلمات پرسشی و منفی‌سازی\n• درس ۷–۱۰: پیشرفته — زمان گذشته و جملات مرکب\n\nاگر هر ۴ سؤال را درست جواب دادی، از درس ۵ به بعد را مرور کن؛ اگر کمتر بود، از درس پیشنهادی شروع کن.</string>
+
+    <string name="booklet_hide_de">مخفی‌کردن آلمانی</string>
+    <string name="booklet_show_de">نمایش آلمانی</string>
+    <string name="hard_for_me">برام سخته</string>
+    <string name="tap_to_reveal">برای دیدن، لمس کن</string>
+
+    <string name="practice_record">ضبط صدا</string>
+    <string name="practice_stop">توقف</string>
+    <string name="practice_play">پخش ضبط</string>
+    <string name="practice_tts">تلفظ آلمانی</string>
+    <string name="practice_scramble">بازی خردکردن جمله</string>
+    <string name="practice_sr">مرور فاصله‌دار</string>
+    <string name="practice_check">بررسی</string>
+    <string name="practice_next">جمله بعدی</string>
+    <string name="practice_correct">آفرین! درست بود ✓</string>
+    <string name="practice_wrong">درست: %s</string>
+    <string name="practice_no_due">فعلاً چیزی برای مرور نیست. جمله یاد بگیر تا به صف مرور اضافه شود!</string>
+    <string name="practice_again">دوباره</string>
+    <string name="practice_known">می‌دانم</string>
+    <string name="practice_dontknow">نمی‌دانم</string>
+    <string name="sr_due_in">جعبه %d • مرور بعدی: %s</string>
+
+    <string name="progress_title">پیشرفت تو</string>
+    <string name="badge_title">نشان‌ها</string>
+    <string name="stats_lessons">درس‌های تمام‌شده</string>
+    <string name="stats_quiz">آزمون‌ها</string>
+    <string name="stats_hard">سخت‌ها</string>
+    <string name="calendar_title">۳۰ روز اخیر</string>
+    <string name="perm_mic">برای ضبط صدا، اجازه میکروفون لازم است.</string>
+    <string name="grant">اجازه می‌دهم</string>
+    <string name="day_active">فعال</string>
 </resources>
