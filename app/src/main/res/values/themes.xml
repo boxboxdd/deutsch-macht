@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.DeutschMacht" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#1B4D3E</item>
+    </style>
+</resources>
