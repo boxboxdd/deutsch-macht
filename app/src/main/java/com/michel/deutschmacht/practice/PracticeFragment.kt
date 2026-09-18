@@ -35,6 +35,11 @@ class PracticeFragment : Fragment() {
     private val poolOrder = mutableListOf<Int>()
     private var poolTokens = emptyArray<String>()
 
+    // Star system: earned per sentence solved, lost on mistakes.
+    private var stars = 0
+    private var roundMistakes = 0
+    private var solved = false
+
     private var srEntry: Lessons.Entry? = null
 
     override fun onCreateView(
@@ -114,6 +119,7 @@ class PracticeFragment : Fragment() {
     }
 
     private fun setupScramble(view: View) {
+        stars = store.prefs().getInt(KEY_STARS, 0)
         newScrambleRound(view)
         view.findViewById<MaterialButton>(R.id.btn_scramble_check).setOnClickListener {
             checkScramble(view)
@@ -121,6 +127,11 @@ class PracticeFragment : Fragment() {
         view.findViewById<MaterialButton>(R.id.btn_scramble_next).setOnClickListener {
             newScrambleRound(view)
         }
+    }
+
+    private fun renderStars(view: View) {
+        view.findViewById<TextView>(R.id.txt_scramble_stars).text =
+            getString(R.string.scramble_stars, stars)
     }
 
     private fun newScrambleRound(view: View) {
@@ -142,7 +153,10 @@ class PracticeFragment : Fragment() {
         poolOrder.shuffle()
         if (poolOrder == poolTokens.indices.toList()) poolOrder.reverse()
         answer.clear()
+        roundMistakes = 0
+        solved = false
         renderScramble(view)
+        renderStars(view)
         view.findViewById<TextView>(R.id.txt_scramble_state).text = ""
     }
 
@@ -155,13 +169,31 @@ class PracticeFragment : Fragment() {
         for (pos in answer.indices) {
             val token = answer[pos]
             val b = chip(token)
-            b.setOnClickListener { answer.removeAt(pos); renderScramble(view) }
+            b.setOnClickListener {
+                if (solved) return@setOnClickListener
+                answer.removeAt(pos)
+                renderScramble(view)
+            }
             ansRow.addView(b)
         }
         for (i in poolOrder.indices) {
             val token = poolTokens[poolOrder[i]]
             val b = chip(token)
-            b.setOnClickListener { answer.add(token); poolOrder.removeAt(i); renderScramble(view) }
+            b.setOnClickListener {
+                if (solved) return@setOnClickListener
+                // Fade the word out, then move it onto the sentence line.
+                it.animate().alpha(0f).setDuration(150).withEndAction {
+                    answer.add(token)
+                    poolOrder.removeAt(i)
+                    renderScramble(view)
+                    val last = ansRow.childCount - 1
+                    if (last >= 0) {
+                        ansRow.getChildAt(last).alpha = 0f
+                        ansRow.getChildAt(last).animate().alpha(1f).setDuration(200).start()
+                    }
+                    if (poolOrder.isEmpty()) checkScramble(view)
+                }.start()
+            }
             poolRow.addView(b)
         }
     }
@@ -186,18 +218,28 @@ class PracticeFragment : Fragment() {
         val state = view.findViewById<TextView>(R.id.txt_scramble_state)
         val hint = view.findViewById<TextView>(R.id.scramble_hint)
         if (ok) {
-            state.text = getString(R.string.practice_correct)
+            solved = true
+            val earned = if (roundMistakes == 0) 3 else maxOf(1, 3 - roundMistakes)
+            stars += earned
+            store.prefs().edit().putInt(KEY_STARS, stars).apply()
+            state.text = if (roundMistakes == 0) getString(R.string.scramble_perfect)
+                else getString(R.string.practice_correct)
             state.setTextColor(requireContext().getColor(R.color.green))
             hint.visibility = View.GONE
+            renderStars(view)
             store.setLearned(e.lesson, e.index, true)
             store.srCorrect(e.lesson, e.index)
             store.srSchedule(e.lesson, e.index)
             Speaker.speak(e.de)
         } else {
+            roundMistakes++
+            stars = maxOf(0, stars - 1)
+            store.prefs().edit().putInt(KEY_STARS, stars).apply()
             state.text = getString(R.string.practice_wrong, e.de)
             state.setTextColor(requireContext().getColor(R.color.red_light))
             hint.visibility = View.VISIBLE
             hint.text = getString(R.string.scramble_hint)
+            renderStars(view)
             store.srWrong(e.lesson, e.index)
             store.srSchedule(e.lesson, e.index)
         }
@@ -257,5 +299,6 @@ class PracticeFragment : Fragment() {
 
     companion object {
         private const val REQ_MIC = 42
+        private const val KEY_STARS = "scramble_stars"
     }
 }

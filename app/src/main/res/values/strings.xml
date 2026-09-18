@@ -68,4 +68,6 @@
     <string name="day_active">فعال</string>
     <string name="scramble_prompt">این جمله را به آلمانی بچین: «%s»</string>
     <string name="scramble_hint">کلمات را به ترتیب درست بچین. می‌توانی پخش آلمانی را بشنوی و بعد تکرار کنی.</string>
+    <string name="scramble_stars">امتیاز: %1$d ★</string>
+    <string name="scramble_perfect">★★★ عالی! بدون اشتباه</string>
 </resources>
