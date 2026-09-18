@@ -173,9 +173,9 @@ class PracticeFragment : Fragment() {
         setText(text)
         insetTop = 4
         insetBottom = 4
-        layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        layoutParams = android.view.ViewGroup.MarginLayoutParams(
+            android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+            android.view.ViewGroup.LayoutParams.WRAP_CONTENT
         )
     }
 
