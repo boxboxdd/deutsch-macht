@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_primary">#101413</color>
+    <color name="text_secondary">#44544E</color>
+    <color name="surface_card">#FFFFFFFF</color>
+    <color name="fill_active">#FF2E7D5B</color>
+    <color name="fill_empty">#22000000</color>
+    <color name="today_stroke">#FFF2A94C</color>
+    <color name="badge_bg">#FFD8EFE3</color>
+    <color name="badge_dim">#1AFFFFFF</color>
+    <color name="overlay_locked">#78FFFFFF</color>
+</resources>

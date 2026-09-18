@@ -66,4 +66,6 @@
     <string name="perm_mic">برای ضبط صدا، اجازه میکروفون لازم است.</string>
     <string name="grant">اجازه می‌دهم</string>
     <string name="day_active">فعال</string>
+    <string name="scramble_prompt">این جمله را به آلمانی بچین: «%s»</string>
+    <string name="scramble_hint">کلمات را به ترتیب درست بچین. می‌توانی پخش آلمانی را بشنوی و بعد تکرار کنی.</string>
 </resources>
